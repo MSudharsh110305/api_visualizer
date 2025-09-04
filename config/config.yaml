@@ -1,0 +1,86 @@
+# API Visualizer Configuration Template
+# Copy this to config.yaml and customize for your environment
+
+environment: development
+service_name: api-visualizer
+
+# Instrumentation settings
+instrumentation:
+  enabled: true
+  sample_rate: 1.0  # 1.0 = 100%, 0.1 = 10% of requests
+  exclude_urls:
+    - "/health"
+    - "/ping" 
+    - "/metrics"
+    - "/favicon.ico"
+  transport_type: memory  # memory, udp, redis
+  batch_size: 100
+  batch_timeout: 5.0
+
+# Storage settings
+storage:
+  db_path: "api_visualizer.db"
+  retention_days: 30
+  auto_vacuum: true
+  backup_enabled: false
+
+# Alerting settings
+alerting:
+  check_interval: 60
+  
+  thresholds:
+    latency_ms:
+      enabled: true
+      value: 1000
+      time_window: "5m"
+      severity: critical
+      
+    error_rate_percent:
+      enabled: true
+      value: 5.0
+      time_window: "10m"
+      severity: critical
+      
+    traffic_spike_percent:
+      enabled: true
+      value: 100
+      time_window: "5m"
+      severity: warning
+  
+  notifications:
+    slack:
+      enabled: false
+      webhook_url: "YOUR_SLACK_WEBHOOK_URL"
+      channel: "#alerts"
+      
+    email:
+      enabled: false
+      smtp_server: "smtp.gmail.com"
+      smtp_port: 587
+      from_addr: "alerts@yourcompany.com"
+      to_addrs:
+        - "ops@yourcompany.com"
+      username: "your-email@gmail.com"
+      password: "your-app-password"
+      use_tls: true
+      
+    console_enabled: true
+  
+  deduplication_enabled: true
+  deduplication_window_minutes: 15
+
+# Dashboard settings
+dashboard:
+  host: "0.0.0.0"
+  port: 8501
+  title: "API Visualizer Dashboard"
+  refresh_interval: 30
+  max_events_display: 1000
+
+# Logging settings
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_path: "logs/api_visualizer.log"
+  max_file_size: "10MB"
+  backup_count: 5
