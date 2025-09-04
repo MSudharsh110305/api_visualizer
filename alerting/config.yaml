@@ -1,0 +1,30 @@
+# EXAMPLE TEMPL
+db_path: "api_visualizer.db"
+
+thresholds:
+  latency_ms:
+    value: 1000
+    time_window: "5m"
+  error_rate_percent:
+    value: 5
+    time_window: "10m"
+  traffic_spike_percent:
+    value: 100
+    time_window: "5m"
+
+notifications:
+  slack:
+    enabled: true
+    webhook_url: "https://hooks.slack.com/services/your/webhook/url"
+  email:
+    enabled: false
+    smtp_server: "smtp.example.com"
+    smtp_port: 587
+    from_addr: "alerts@example.com"
+    to_addrs:
+      - "ops@example.com"
+    username: "smtp_user"
+    password: "smtp_password"
+    use_tls: true
+  console:
+    enabled: true
