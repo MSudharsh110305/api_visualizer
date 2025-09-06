@@ -10,6 +10,8 @@ API Visualizer provides **non-intrusive monitoring** for Python applications tha
 It captures request/response metadata, performance statistics, and service dependencies **without requiring changes** to your existing API calls.
 
 <br>
+![Flowchart Diagram](https://i.postimg.cc/K87RXd58/flowchart-fun-1.png)
+<br>
 
 ## ⚙️ Core Components
 
