@@ -305,6 +305,7 @@ Handles SQLite operations and provides query interfaces.
   `streamlit`, `plotly`, `pandas`, `networkx`, `requests`, `python-dotenv`
 
 
-## 📜 License
+## License
 
-[CC BY-NC-SA 4.0](LICENSE) © Sudharsh | Non-commercial use only
+This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0) - see the [LICENSE](./LICENSE) file for details.
+
